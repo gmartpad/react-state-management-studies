@@ -1,32 +1,60 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function NameList() {
+  const [list, setList] = useState(['Jack', 'Jill', 'John'])
+  const [name, setName] = useState(() => 'Jeff')
+
+  function addNameToList(newName) {
+    setList(previousState => [...previousState, newName])
+    setName('')
+  }
+
+  return (
+    <div>
+      <ul>
+        {list.map((n, i) => (
+          <li key={n}>{n}</li>
+        ))}
+        <input 
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button
+          onClick={() => addNameToList(name)}
+        >Add name</button>
+      </ul>
+    </div>
+  )
+}
+
+function Counter() {
+  // The first value of the array that useState returns
+  // is the actual value of the state.
+  // The second value of the array is the setter function.
+  // The argument that the 'useState' function itself receives
+  // (in this case the int 10) is the initial value of the state
+  const [count, setCount] = useState(10)
+
+  function addOne() {
+    setCount(previousState => previousState + 1)
+  }
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button
+        onClick={addOne}
+      >Count = {count}</button>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      <Counter/>
+      <NameList/>
     </div>
   )
 }
