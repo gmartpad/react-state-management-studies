@@ -7,6 +7,8 @@ import ReducerNameList from './components/ReducerNameList';
 import UserForm from './components/UserForm';
 import MemoCallbackComponent from './components/MemoCallbackComponent';
 import UseEffectComponent from './components/UseEffectComponent';
+import UseRefComponent from './components/UseRefComponent';
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
         <Tab>useReducer</Tab>
         <Tab>useMemo & useCallback</Tab>
         <Tab>useEffect</Tab>
+        <Tab>useRef</Tab>
       </TabList>
 
       {/* useState */}
@@ -47,6 +50,11 @@ function App() {
       {/* useEffect */}
       <TabPanel>
         <UseEffectComponent/>
+      </TabPanel>
+
+      {/* useRef */}
+      <TabPanel>
+        <UseRefComponent/>
       </TabPanel>
     </Tabs>
   )
