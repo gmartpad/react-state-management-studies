@@ -5,6 +5,7 @@ import Counter from './components/Counter'
 import NameList from './components/NameList'
 import ReducerNameList from './components/ReducerNameList';
 import UserForm from './components/UserForm';
+import MemoCallbackComponent from './components/MemoCallbackComponent';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <TabList>
         <Tab>useState</Tab>
         <Tab>useReducer</Tab>
+        <Tab>useMemo & useCallback</Tab>
       </TabList>
 
       {/* useState */}
@@ -33,6 +35,11 @@ function App() {
       <TabPanel>
         <ReducerNameList/>
         <UserForm/>
+      </TabPanel>
+
+      {/* useMemo & useCallback */}
+      <TabPanel>
+        <MemoCallbackComponent/>
       </TabPanel>
     </Tabs>
   )
