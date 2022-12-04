@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Stopwatch from './components/Stopwatch';
+import Stopwatch from '../Stopwatch';
 
 function UseEffectComponent() {
 
