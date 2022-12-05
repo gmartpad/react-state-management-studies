@@ -9,6 +9,8 @@ import UserForm from './components/UserForm';
 import MemoCallbackComponent from './components/MemoCallbackComponent';
 import UseEffectComponent from './components/UseEffectComponent';
 import UseRefComponent from './components/UseRefComponent';
+import ContextHooksComponent from './components/ContextHooksComponent';
+
 function App() {
 
   return (
@@ -27,6 +29,7 @@ function App() {
         <Tab>useMemo & useCallback</Tab>
         <Tab>useEffect</Tab>
         <Tab>useRef</Tab>
+        <Tab>Context & Hooks</Tab>
       </TabList>
 
       {/* useState */}
@@ -54,6 +57,11 @@ function App() {
       {/* useRef */}
       <TabPanel>
         <UseRefComponent/>
+      </TabPanel>
+
+      {/* Context & Hooks */}
+      <TabPanel>
+        <ContextHooksComponent/>
       </TabPanel>
     </Tabs>
   )
