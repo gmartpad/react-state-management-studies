@@ -1,14 +1,15 @@
+import React from 'react'
 import './App.css'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Counter from './components/Counter'
+import Counter from './components/Counter';
 import NameList from './components/NameList'
 import ReducerNameList from './components/ReducerNameList';
 import UserForm from './components/UserForm';
 import MemoCallbackComponent from './components/MemoCallbackComponent';
 import UseEffectComponent from './components/UseEffectComponent';
 import UseRefComponent from './components/UseRefComponent';
-
+import ContextHooksComponent from './components/ContextHooksComponent';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Tab>useMemo & useCallback</Tab>
         <Tab>useEffect</Tab>
         <Tab>useRef</Tab>
+        <Tab>Context & Hooks</Tab>
       </TabList>
 
       {/* useState */}
@@ -55,6 +57,11 @@ function App() {
       {/* useRef */}
       <TabPanel>
         <UseRefComponent/>
+      </TabPanel>
+
+      {/* Context & Hooks */}
+      <TabPanel>
+        <ContextHooksComponent/>
       </TabPanel>
     </Tabs>
   )
