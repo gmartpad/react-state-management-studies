@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 
 export default function Counter() {
   // The first value of the array that useState returns

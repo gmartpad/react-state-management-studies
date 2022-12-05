@@ -2,15 +2,13 @@ import React from 'react'
 import './App.css'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Counter from './components/Counter'
+import Counter from './components/Counter';
 import NameList from './components/NameList'
 import ReducerNameList from './components/ReducerNameList';
 import UserForm from './components/UserForm';
 import MemoCallbackComponent from './components/MemoCallbackComponent';
 import UseEffectComponent from './components/UseEffectComponent';
 import UseRefComponent from './components/UseRefComponent';
-
-
 function App() {
 
   return (
