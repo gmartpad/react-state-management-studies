@@ -1,7 +1,17 @@
-import { useReducer } from "react"
+import { Reducer, useReducer } from "react"
+
+interface IState {
+  names: string[]
+  name: string
+}
+
+interface IAction {
+  type: string
+  payload: string
+}
 
 export default function ReducerNameList () {
-  const [state, dispatch] = useReducer((state, action) => {
+  const [state, dispatch] = useReducer<Reducer<IState, IAction>>((state: IState, action: IAction) => {
     switch(action.type) {
       case "SET_NAME":
         return {...state, name: action.payload}
@@ -11,6 +21,8 @@ export default function ReducerNameList () {
           names: [...state.names, action.payload],
           name: ''
         }
+      default:
+        return {...state}
     }
   },{
     names: [],
@@ -33,7 +45,7 @@ export default function ReducerNameList () {
         Add New Name
       </button>
       <ul>
-        {state.names.map((i, k) => (
+        {state.names.map((i: string, k: number) => (
           <li key={k}>{i}</li>
         ))}
       </ul>

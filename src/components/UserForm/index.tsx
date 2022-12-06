@@ -1,7 +1,14 @@
-import { useReducer } from "react"
+import { Reducer, useReducer } from "react"
+
+interface IState {
+  first: string
+  last: string
+}
+
+type IAction = Partial<IState>
 
 export default function UserForm () {
-  const [state, dispatch] = useReducer(
+  const [state, dispatch] = useReducer<Reducer<IState, IAction>>(
     (state, action) => ({
       ...state,
       ...action,
