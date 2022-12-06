@@ -1,15 +1,20 @@
-import { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+
+interface IName {
+  id: number
+  name: string
+}
 
 function UseRefComponent() {
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    inputRef.current.focus()
+    inputRef?.current?.focus()
   }, [])
 
   const idRef = useRef(1);
 
-  const [names, setNames] = useState([
+  const [names, setNames] = useState<IName[]>([
     { id: idRef.current++, name: 'Jane' },
     { id: idRef.current++, name: 'John' }
   ])
@@ -18,16 +23,16 @@ function UseRefComponent() {
     setNames([...names, 
       {
         id: idRef.current++,
-        name: inputRef.current.value
+        name: inputRef?.current?.value!
       }
     ])
-    inputRef.current.values = ''
+    inputRef.current!.value = ''
   }
 
   return (
     <div>
       <div>
-        {names.map((nameObject, key) => (
+        {names!.map((nameObject, key) => (
           <div key={key}>{nameObject.id} - {nameObject.name}</div>
         ))}
       </div>

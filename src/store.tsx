@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, createContext, useReducer, useCallback, useMemo } from 'react'
-
+import { useQuery } from "@tanstack/react-query"
 interface Pokemon {
   id: number
   name: string
@@ -17,34 +17,32 @@ function usePokemonSource(): {
   search: string,
   setSearch: (search: string) => void
 } {
-  // const [pokemon, setPokemon] = useState<Pokemon[]>([])
+  const { data: pokemon } = useQuery<Pokemon[]>(
+    ["pokemon"], 
+    () => fetch("/pokemon.json").then((res) => res.json()),
+    {
+      initialData: []
+    }
+  ) 
 
   type PokemonState = {
-    pokemon: Pokemon[]
     search: string
   }
 
   type PokemonAction = 
-    { type: "setPokemon", payload: Pokemon[] }
     | { type: "setSearch", payload: string }
 
-  const [ { pokemon, search }, dispatch ] = useReducer((state: PokemonState, action: PokemonAction) => {
+  const [{ 
+      search 
+    }, 
+    dispatch 
+  ] = useReducer((state: PokemonState, action: PokemonAction) => {
     switch(action.type){
-      case "setPokemon":
-        return { ...state, pokemon: action.payload }
       case "setSearch":
         return { ...state, search: action.payload }
     }
   }, {
-    pokemon: [],
     search: ""
-  })
-
-  useEffect(() => {
-    fetch("/pokemon.json")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "setPokemon", payload: data }))
-      .catch((e) => console.error("Error message (catch): ", e))
   })
 
   const setSearch = useCallback((search: string) => {
@@ -59,7 +57,11 @@ function usePokemonSource(): {
     [...filteredPokemon].sort((a, b) => a.name.localeCompare(b.name))
   , [filteredPokemon])
 
-  return { pokemon: sortedPokemon, search, setSearch }
+  return { 
+    pokemon: sortedPokemon, 
+    search, 
+    setSearch 
+  }
 }
 
 const PokemonContext = createContext<

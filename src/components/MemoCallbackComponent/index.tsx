@@ -1,5 +1,5 @@
 import SortedList from '../SortedList';
-import { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 
 function MemoCallbackComponent() {
   const [numbers] = useState([10, 20, 30])
@@ -18,11 +18,11 @@ function MemoCallbackComponent() {
   const [count2, setCount2] = useState(0)
   const countTotal = count1 + count2
 
-  const sortFunc = useCallback((a, b) => a.localeCompare(b) * -1, [])
+  const sortFunc = useCallback((a: string, b: string) => a.localeCompare(b) * -1, [])
 
   return (
     <div>
-      Total: {total}
+      <p>Total: {JSON.stringify(total)}</p>
       <p>Names</p>
       <p>Name List: {names.join(', ')}</p>
       <SortedList list={names} sortFunc={sortFunc} />

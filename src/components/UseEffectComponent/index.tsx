@@ -15,7 +15,7 @@ function UseEffectComponent() {
   const [selectedName, setSelectedName] = useState(null)
   const [selectedNameDetails, setSelectedNameDetails] = useState(null)
 
-  const handleSelectedNameChange = (name) => {
+  const handleSelectedNameChange = (name: string) => {
     fetch(`/${name}.json`)
       .then((res) => res.json())
       .then((data) => setSelectedNameDetails(data))
@@ -27,7 +27,7 @@ function UseEffectComponent() {
       <div>
         {names.map((name, key) => (
           <button 
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             key={key}
             onClick={() => handleSelectedNameChange(name)}
           >
