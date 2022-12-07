@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-location"
 import TabsComponent from './components/TabsComponent';
 import PokemonDetails from './components/PokemonDetails';
+import ZustandApp from './components/ZustandApp';
 
 const routes = [
   {
@@ -19,13 +20,19 @@ const routes = [
     )
   },
   {
-    path: '/pokemon/:id',
+    path: '/zustand-pokemon',
+    element: (
+      <ZustandApp/>
+    )
+  },
+  {
+    path: '/react-query-pokemon/:id',
     element: (
       <PokemonDetails/>  
     )
   },
   {
-    path: '/pokemon',
+    path: '/react-query-pokemon',
     element: (
       <ContextHooksComponent/>
     )
