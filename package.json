@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/query-core": "^4.19.1",
     "@tanstack/react-location": "^3.7.4",
     "@tanstack/react-query": "^4.19.1",
+    "jotai": "^1.11.1",
+    "jotai-tanstack-query": "^0.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-tabs": "^6.0.0",
