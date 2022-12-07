@@ -9,9 +9,8 @@ import UseRefComponent from "../UseRefComponent";
 import UserForm from "../UserForm";
 
 export default function TabsComponent() {
-
+  
   return (
-
     <Tabs
       style={{
         position: 'absolute',
