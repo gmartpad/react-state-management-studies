@@ -12,12 +12,19 @@ import TabsComponent from './components/TabsComponent';
 import PokemonDetails from './components/PokemonDetails';
 import ZustandApp from './components/ZustandApp';
 import ValtioApp from './components/ValtioApp';
+import JotaiApp from './components/JotaiApp';
 
 const routes = [
   {
     path: '/',
     element: (
       <TabsComponent/>
+    )
+  },
+  {
+    path: '/jotai-pokemon',
+    element: (
+      <JotaiApp/>
     )
   },
   {
