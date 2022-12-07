@@ -11,12 +11,19 @@ import {
 import TabsComponent from './components/TabsComponent';
 import PokemonDetails from './components/PokemonDetails';
 import ZustandApp from './components/ZustandApp';
+import ValtioApp from './components/ValtioApp';
 
 const routes = [
   {
     path: '/',
     element: (
       <TabsComponent/>
+    )
+  },
+  {
+    path: '/valtio-pokemon',
+    element: (
+      <ValtioApp/>
     )
   },
   {
