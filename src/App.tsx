@@ -1,61 +1,31 @@
-import React from 'react'
-import './App.css'
-import ContextHooksComponent from './components/ContextHooksComponent';
-import { PokemonProvider } from "./store";
+import { PokemonProvider } from "./stores/reactQueryStore";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   ReactLocation,
   Router,
 } from "@tanstack/react-location"
-import TabsComponent from './components/TabsComponent';
+import NativeReactStateManagement from './components/NativeReactStateManagement';
 import PokemonDetails from './components/PokemonDetails';
-import ZustandApp from './components/ZustandApp';
-import ValtioApp from './components/ValtioApp';
-import JotaiApp from './components/JotaiApp';
-import ReduxApp from './components/ReduxApp';
+import LibStateManagement from "./components/LibStateManagement";
 
 const routes = [
   {
     path: '/',
     element: (
-      <TabsComponent/>
+      <NativeReactStateManagement/>
     )
   },
   {
-    path: '/redux-pokemon',
-    element: (
-      <ReduxApp/>
-    )
-  },
-  {
-    path: '/jotai-pokemon',
-    element: (
-      <JotaiApp/>
-    )
-  },
-  {
-    path: '/valtio-pokemon',
-    element: (
-      <ValtioApp/>
-    )
-  },
-  {
-    path: '/zustand-pokemon',
-    element: (
-      <ZustandApp/>
-    )
-  },
-  {
-    path: '/react-query-pokemon/:id',
+    path: '/pokemon/:id',
     element: (
       <PokemonDetails/>  
     )
   },
   {
-    path: '/react-query-pokemon',
+    path: '/pokemon',
     element: (
-      <ContextHooksComponent/>
+      <LibStateManagement/>
     )
   },
 ]
