@@ -13,12 +13,19 @@ import PokemonDetails from './components/PokemonDetails';
 import ZustandApp from './components/ZustandApp';
 import ValtioApp from './components/ValtioApp';
 import JotaiApp from './components/JotaiApp';
+import ReduxApp from './components/ReduxApp';
 
 const routes = [
   {
     path: '/',
     element: (
       <TabsComponent/>
+    )
+  },
+  {
+    path: '/redux-pokemon',
+    element: (
+      <ReduxApp/>
     )
   },
   {
