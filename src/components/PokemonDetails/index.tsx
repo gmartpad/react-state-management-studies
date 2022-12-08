@@ -3,7 +3,7 @@ import {
   Link,
   useMatch,
 } from "@tanstack/react-location"
-import { usePokemon } from '../../store'
+import { usePokemon } from '../../stores/reactQueryStore'
 
 export default function PokemonDetails() {
 
