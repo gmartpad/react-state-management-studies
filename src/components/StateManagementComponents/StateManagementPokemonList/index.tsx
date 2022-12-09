@@ -1,15 +1,19 @@
-import { usePokemon } from "../../../stores/reactQueryStore"
+import { useSelector } from 'react-redux'
+import { selectPokemon } from "../../../stores/reduxStore"
 import {
   Link,
 } from "@tanstack/react-location"
+import { Pokemon } from '../../../stores/reduxStore'
 
-export default function PokemonList()  {
+interface IStateManagementPokemonList {
+  pokemonList: Pokemon[]
+}
 
-  const { pokemon } = usePokemon()
+export default function StateManagementPokemonList({ pokemonList }: IStateManagementPokemonList)  {
 
   return (
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-3">
-      {pokemon.map((p) => (
+      {pokemonList.map((p) => (
         <Link
           key={p.id}
           to={`/pokemon/${p.id}`}

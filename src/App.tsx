@@ -8,6 +8,8 @@ import {
 import NativeReactStateManagement from './components/NativeReactStateManagement';
 import PokemonDetails from './components/PokemonDetails';
 import LibStateManagement from "./components/LibStateManagement";
+import { Provider } from "react-redux";
+import { store } from "./stores/reduxStore";
 
 const routes = [
   {
@@ -36,15 +38,17 @@ const location = new ReactLocation();
 function App() {
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <PokemonProvider>
-        <Router location={location} routes={routes}>
-          <div className="mx-auto max-w-3xl">
-            <Outlet/>
-          </div>
-        </Router>
-      </PokemonProvider>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <PokemonProvider>
+          <Router location={location} routes={routes}>
+            <div className="mx-auto max-w-3xl">
+              <Outlet/>
+            </div>
+          </Router>
+        </PokemonProvider>
+      </QueryClientProvider>
+    </Provider>
   )
 }
 
