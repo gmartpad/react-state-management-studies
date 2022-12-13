@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function NameList() {
   const [list, setList] = useState(['Jack', 'Jill', 'John'])
-  const [name, setName] = useState(() => 'Jeff')
+  const [name, setName] = useState(() => '')
 
   function addNameToList(newName: string) {
     setList(previousState => [...previousState, newName])
