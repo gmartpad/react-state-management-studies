@@ -39,7 +39,8 @@ export default function NativeReactStateManagement() {
       {/* useReducer */}
       <TabPanel>
         <ReducerNameList/>
-        <UserForm/>
+        <Divider/>
+        <UserForm/> 
       </TabPanel>
 
       {/* useMemo & useCallback */}
