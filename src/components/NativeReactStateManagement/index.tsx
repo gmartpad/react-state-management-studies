@@ -7,6 +7,7 @@ import ReducerNameList from "../ReducerNameList";
 import UseEffectComponent from "../UseEffectComponent";
 import UseRefComponent from "../UseRefComponent";
 import UserForm from "../UserForm";
+import Divider from '../Divider';
 
 export default function NativeReactStateManagement() {
   
@@ -31,6 +32,7 @@ export default function NativeReactStateManagement() {
       {/* useState */}
       <TabPanel>
         <Counter/>
+        <Divider/>
         <NameList/>
       </TabPanel>
       
