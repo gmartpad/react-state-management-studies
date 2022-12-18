@@ -49,7 +49,7 @@ export default function LibStateManagement() {
     <Tabs
       style={{
         position: 'absolute',
-        top: 0,
+        top: 40,
         bottom: 0,
         left: 0,
         right: 0,
