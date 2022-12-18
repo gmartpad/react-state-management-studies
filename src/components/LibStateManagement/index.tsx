@@ -9,6 +9,7 @@ import { useSnapshot } from 'valtio';
 import { pokemon, search } from '../../stores/valtioStore';
 import { useSelector } from 'react-redux';
 import { RootState, selectPokemon, selectSearch, setSearch as setReduxSearch } from '../../stores/reduxStore';
+import { Link } from '@tanstack/react-location';
 
 export default function LibStateManagement() {
 
@@ -46,68 +47,78 @@ export default function LibStateManagement() {
   }
 
   return (
-    <Tabs
-      style={{
-        position: 'absolute',
-        top: 40,
-        bottom: 0,
-        left: 0,
-        right: 0,
-      }}
-    >
-      <TabList>
-        <Tab>Jotai</Tab>
-        <Tab>React Query</Tab>
-        <Tab>Zustand</Tab>
-        <Tab>Valtio</Tab>
-        <Tab>Redux</Tab>
-      </TabList>
+    <>
+      <div className="absolute flex justify-center items-center h-10 bg-blue-500 inset-0">
+        <Link to="/" className="text-base font-medium text-white hover:text-gray-300 mx-6">
+          <p>Home</p>
+        </Link>
+        <Link to="/pokemon" className="text-base font-medium text-white hover:text-gray-300 mx-6">
+          <p>Pokemon</p>
+        </Link>
+      </div>
+      <Tabs
+        style={{
+          position: 'absolute',
+          top: 40,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        }}
+      >
+        <TabList>
+          <Tab>Jotai</Tab>
+          <Tab>React Query</Tab>
+          <Tab>Zustand</Tab>
+          <Tab>Valtio</Tab>
+          <Tab>Redux</Tab>
+        </TabList>
 
-      {/* Jotai */}
-      <TabPanel>
-        <StateManagementApp
-          pokemonList={jotaiPokemonList}
-          search={jotaiSearch}
-          setSearch={jotaiSetSearch}
-        />
-      </TabPanel>
+        {/* Jotai */}
+        <TabPanel>
+          <StateManagementApp
+            pokemonList={jotaiPokemonList}
+            search={jotaiSearch}
+            setSearch={jotaiSetSearch}
+          />
+        </TabPanel>
 
-      {/* React Query */}
-      <TabPanel>
-        <StateManagementApp
-          pokemonList={reactQueryPokemonList}
-          search={reactQuerySearch}
-          setSearch={setReactQuerySearch}
-        />
-      </TabPanel>
-      
-      {/* Zustand */}
-      <TabPanel>
-        <StateManagementApp
-          pokemonList={zustandPokemonList}
-          search={zustandSearch}
-          setSearch={setZustandSearch}
-        />
-      </TabPanel>
+        {/* React Query */}
+        <TabPanel>
+          <StateManagementApp
+            pokemonList={reactQueryPokemonList}
+            search={reactQuerySearch}
+            setSearch={setReactQuerySearch}
+          />
+        </TabPanel>
+        
+        {/* Zustand */}
+        <TabPanel>
+          <StateManagementApp
+            pokemonList={zustandPokemonList}
+            search={zustandSearch}
+            setSearch={setZustandSearch}
+          />
+        </TabPanel>
 
-      {/* Valtio */}
-      <TabPanel>
-        <StateManagementApp
-          pokemonList={snapPokemon.list}
-          search={snapSearch.query}
-          setSearch={setValtioSearch}
-        />
-      </TabPanel>
+        {/* Valtio */}
+        <TabPanel>
+          <StateManagementApp
+            pokemonList={snapPokemon.list}
+            search={snapSearch.query}
+            setSearch={setValtioSearch}
+          />
+        </TabPanel>
 
-      {/* Redux */}
-      <TabPanel>
-        <StateManagementApp
-          pokemonList={reduxPokemonList}
-          search={reduxSearch}
-          setSearch={setReduxSearch}
-          isRedux={true}
-        />
-      </TabPanel>
-    </Tabs>
+        {/* Redux */}
+        <TabPanel>
+          <StateManagementApp
+            pokemonList={reduxPokemonList}
+            search={reduxSearch}
+            setSearch={setReduxSearch}
+            isRedux={true}
+          />
+        </TabPanel>
+      </Tabs>
+    </>
   )
 }
