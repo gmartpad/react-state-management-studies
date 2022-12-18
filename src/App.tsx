@@ -39,21 +39,17 @@ const location = new ReactLocation();
 function App() {
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <PokemonProvider>
-          <Router location={location} routes={routes}>
-            <div className="mx-auto max-w-3xl">
-              <div className="absolute flex justify-center items-center h-10 bg-blue-500 inset-0">
-                <Link to="/" className="text-base font-medium text-white hover:text-gray-300 mx-6">Home</Link>
-                <Link to="/pokemon"className="text-base font-medium text-white hover:text-gray-300 mx-6">Pokemon</Link>
+    <Router location={location} routes={routes}>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <PokemonProvider>
+              <div className="mx-auto max-w-3xl">
+                <Outlet/>
               </div>
-              <Outlet/>
-            </div>
-          </Router>
-        </PokemonProvider>
-      </QueryClientProvider>
-    </Provider>
+          </PokemonProvider>
+        </QueryClientProvider>
+      </Provider>
+    </Router>
   )
 }
 
