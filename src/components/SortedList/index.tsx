@@ -1,6 +1,11 @@
 import { useMemo } from 'react'
 
-function SortedList({ list, sortFunc }) {
+interface ISortedList {
+  list: string[]
+  sortFunc: (a: string, b: string) => number
+}
+
+function SortedList({ list, sortFunc }: ISortedList) {
   const sortedList = useMemo(() => {
     return [...list].sort(sortFunc)
   }, [list, sortFunc])
