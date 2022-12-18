@@ -41,7 +41,7 @@ function MemoCallbackComponent() {
       </div>
       <Divider/>
       <span className="flex flex-col items-center my-6 text-center">
-        <p>The Counts below is being handled using the React useState hook</p>
+        <p>The Count below is being handled using the React useState hook</p>
       </span>
       <div className="flex items-center flex-col">
         <div className="flex flex-col items-center mb-4">
