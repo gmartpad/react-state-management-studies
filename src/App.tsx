@@ -1,6 +1,7 @@
 import { PokemonProvider } from "./stores/reactQueryStore";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
+  Link,
   Outlet,
   ReactLocation,
   Router,
@@ -43,6 +44,10 @@ function App() {
         <PokemonProvider>
           <Router location={location} routes={routes}>
             <div className="mx-auto max-w-3xl">
+              <div className="absolute flex justify-center items-center h-10 bg-blue-500 inset-0">
+                <Link to="/" className="text-base font-medium text-white hover:text-gray-300 mx-6">Home</Link>
+                <Link to="/pokemon"className="text-base font-medium text-white hover:text-gray-300 mx-6">Pokemon</Link>
+              </div>
               <Outlet/>
             </div>
           </Router>
