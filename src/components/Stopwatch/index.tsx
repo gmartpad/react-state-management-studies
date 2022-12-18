@@ -13,7 +13,7 @@ function Stopwatch() {
 
   return (
     <div>
-      <p>Time: {time}</p>
+      <p>Time (in seconds): {time}</p>
     </div>
   )
 }
