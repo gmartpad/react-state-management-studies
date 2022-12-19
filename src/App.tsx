@@ -12,6 +12,7 @@ import LibStateManagement from "./components/LibStateManagement";
 import { Provider } from "react-redux";
 import { store } from "./stores/reduxStore";
 import { Suspense } from "react";
+import SuspenseFallback from "./components/SuspenseFallback";
 
 const routes = [
   {
@@ -40,14 +41,14 @@ const location = new ReactLocation();
 function App() {
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<SuspenseFallback/>}>
       <Router location={location} routes={routes}>
         <Provider store={store}>
           <QueryClientProvider client={queryClient}>
             <PokemonProvider>
-                <div className="mx-auto max-w-3xl">
-                  <Outlet/>
-                </div>
+              <div className="mx-auto max-w-3xl">
+                <Outlet/>
+              </div>
             </PokemonProvider>
           </QueryClientProvider>
         </Provider>
