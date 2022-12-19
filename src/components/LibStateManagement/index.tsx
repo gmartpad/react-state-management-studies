@@ -66,7 +66,7 @@ export default function LibStateManagement() {
         }}
       >
         <TabList>
-          {/* <Tab>Jotai</Tab> */}
+          <Tab>Jotai</Tab>
           <Tab>React Query</Tab>
           <Tab>Zustand</Tab>
           <Tab>Valtio</Tab>
@@ -74,13 +74,13 @@ export default function LibStateManagement() {
         </TabList>
 
         {/* Jotai */}
-        {/* <TabPanel>
+        <TabPanel>
           <StateManagementApp
             pokemonList={jotaiPokemonList}
             search={jotaiSearch}
             setSearch={jotaiSetSearch}
           />
-        </TabPanel> */}
+        </TabPanel>
 
         {/* React Query */}
         <TabPanel>
