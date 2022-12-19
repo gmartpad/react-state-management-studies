@@ -11,6 +11,7 @@ import PokemonDetails from './components/PokemonDetails';
 import LibStateManagement from "./components/LibStateManagement";
 import { Provider } from "react-redux";
 import { store } from "./stores/reduxStore";
+import { Suspense } from "react";
 
 const routes = [
   {
@@ -39,17 +40,19 @@ const location = new ReactLocation();
 function App() {
 
   return (
-    <Router location={location} routes={routes}>
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <PokemonProvider>
-              <div className="mx-auto max-w-3xl">
-                <Outlet/>
-              </div>
-          </PokemonProvider>
-        </QueryClientProvider>
-      </Provider>
-    </Router>
+    <Suspense fallback={<div>Loading</div>}>
+      <Router location={location} routes={routes}>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <PokemonProvider>
+                <div className="mx-auto max-w-3xl">
+                  <Outlet/>
+                </div>
+            </PokemonProvider>
+          </QueryClientProvider>
+        </Provider>
+      </Router>
+    </Suspense>
   )
 }
 
