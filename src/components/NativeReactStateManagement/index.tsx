@@ -9,8 +9,12 @@ import UseRefComponent from "../UseRefComponent";
 import UserForm from "../UserForm";
 import Divider from '../Divider';
 import { Link } from '@tanstack/react-location';
+import useWindowSize from '../../hooks/useWindowSize';
+import { useEffect } from 'react';
 
 export default function NativeReactStateManagement() {
+
+  const { windowSize } = useWindowSize()
   
   return (
     <>
@@ -31,7 +35,9 @@ export default function NativeReactStateManagement() {
           right: 0,
         }}
       >
-        <TabList>
+        <TabList
+          className={windowSize.innerWidth <= 426 ? `flex flex-col items-center text-center` : ``}
+        >
           <Tab>useState</Tab>
           <Tab>useReducer</Tab>
           <Tab>useMemo & useCallback</Tab>
