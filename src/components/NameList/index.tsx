@@ -1,8 +1,11 @@
 import { useState } from "react"
+import useWindowSize from "../../hooks/useWindowSize"
 
 export default function NameList() {
   const [list, setList] = useState(['Jack', 'Jill', 'John'])
   const [name, setName] = useState(() => '')
+
+  const { windowSize } = useWindowSize()
 
   function addNameToList(newName: string) {
     setList(previousState => [...previousState, newName])
@@ -14,7 +17,7 @@ export default function NameList() {
       <span className="flex flex-col items-center my-6 text-center">
         <p>The Name list, the input and the button below are being handled using the React useState hook</p>
       </span>
-      <div className="flex justify-center">
+      <div className={windowSize.innerWidth <= 425 ?`flex flex-col-reverse`:`flex justify-center`}>
         <div className="flex flex-col items-center">
           <p className="font-bold">Name List:</p>
           <ul className="flex flex-col items-center">
@@ -23,7 +26,7 @@ export default function NameList() {
             ))}
           </ul>
         </div>
-        <div className="flex justify-end items-center pl-8">
+        <div className={windowSize.innerWidth <= 425 ?`flex justify-end items-center pb-8`:`flex justify-end items-center pl-8`}>
           <input 
             className="flex-1 my-2 shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
