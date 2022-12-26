@@ -17,7 +17,7 @@ export default function NameList() {
       <span className="flex flex-col items-center my-6 text-center">
         <p>The Name list, the input and the button below are being handled using the React useState hook</p>
       </span>
-      <div className={windowSize.innerWidth <= 425 ?`flex flex-col-reverse`:`flex justify-center`}>
+      <div className={windowSize.innerWidth <= 768 ?`flex flex-col-reverse`:`flex justify-center`}>
         <div className="flex flex-col items-center">
           <p className="font-bold">Name List:</p>
           <ul className="flex flex-col items-center">
@@ -26,16 +26,16 @@ export default function NameList() {
             ))}
           </ul>
         </div>
-        <div className={windowSize.innerWidth <= 425 ?`flex justify-end items-center pb-8`:`flex justify-end items-center pl-8`}>
+        <div className={windowSize.innerWidth <= 768 ?`flex flex-col justify-end items-center`:`flex justify-end items-center pl-8`}>
           <input 
-            className="flex-1 my-2 shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={[`flex-1 my-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`, windowSize.innerWidth <= 768 ? `w-full` : `w-1/3`].join(' ')}
             type="text"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <button
-            className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
+            className={[`my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`, windowSize.innerWidth <= 768 ? `mx-2 w-full` : `ml-2`].join(' ')}
             onClick={() => addNameToList(name)}
           >
             Add name
