@@ -1,4 +1,5 @@
 import { Reducer, useReducer } from "react"
+import useWindowSize from "../../hooks/useWindowSize"
 
 interface IState {
   first: string
@@ -8,6 +9,9 @@ interface IState {
 type IAction = Partial<IState>
 
 export default function UserForm () {
+
+  const { windowSize } = useWindowSize()
+
   const [state, dispatch] = useReducer<Reducer<IState, IAction>>(
     (state, action) => ({
       ...state,
@@ -26,7 +30,7 @@ export default function UserForm () {
         <div className="flex flex-col items-center">
           <input 
             placeholder="First Name"
-            className="flex-1 my-2 shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={[`flex-1 my-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`, windowSize.innerWidth <= 768 ? `w-full` : `w-1/3`].join(' ')}
             type="text" 
             value={state.first}
             onChange={(e) => dispatch({ first: e.target.value })}
@@ -36,7 +40,7 @@ export default function UserForm () {
         <div className="flex flex-col items-center">
           <input
             placeholder="Last Name"
-            className="flex-1 my-2 shadow appearance-none border rounded w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={[`flex-1 my-2 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`, windowSize.innerWidth <= 768 ? `w-full` : `w-1/3`].join(' ')}
             type="text"
             value={state.last}
             onChange={(e) => dispatch({ last: e.target.value })}
